@@ -229,7 +229,7 @@ echo '</center></td>
 echo '</table>
 </div>';
 }
-echo '<center><br><font color="white" size="3px">{ zsec@gmx.com | GengefulGhost }</center></font>
+echo '<center><br><font color="white" size="3px">{ zsec@gmx.com | VengefulGhost }</center></font>
 </body>
 </html>';
 function perms($file){
