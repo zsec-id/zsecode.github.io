@@ -26,9 +26,6 @@ echo '<!DOCTYPE HTML>
 <style>
 body{
 font-family: "Federant";
-background-image:url(https://i.ibb.co/DLXyr8B/20200308-072032.jpg);
-background-size:cover;
-background-position:center center;
 background-color: darkred;
 color:red;
 }
@@ -36,6 +33,9 @@ color:red;
 background-color: #191919;
 }
 table{
+background-image:url(https://i.ibb.co/DLXyr8B/20200308-072032.jpg);
+background-size:cover;
+background-position:center center;
 border: 2px dotted #191919;
 }
 a{
