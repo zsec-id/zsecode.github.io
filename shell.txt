@@ -3,6 +3,7 @@
 <head>
 <meta name="robots" content="noindex">
 <meta name="googlebot" content="noindex">
+<meta name="robots" content="noindex, nofollow">
 <title>‌</title>
 <link href="https://fonts.googleapis.com/css?family=Calligraffitti&display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Federant&display=swap" rel="stylesheet">
