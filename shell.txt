@@ -566,7 +566,7 @@ echo '</center></td>
 echo '</table>
 </div>';
 }
-echo '<center><br><font color="white" size="3px">{ zsec@gmx.com | VengefulGhost }</center></font>
+echo '<center><br><font color="white" size="3px">{ zsec@gmx.com | Ghost Riddiculous Team }</center></font>
 </body>
 </html>';
 function perms($file){
