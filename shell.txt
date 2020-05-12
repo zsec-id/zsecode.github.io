@@ -22,7 +22,7 @@ h1{ color: #000; text-decoration: none; border-radius:0px; border:0px;margin:0px
 
 
 <?php
-eval(gzinflate(base64_decode("jZBBa8JAEIXvhf6HYRHWgpiC4MEiVOoePGjaGL0UWWKcZrcm2bAzUGnrf+/GUEp76mlg3sz3Zh4ha7YV6tJWlvu3N3fXV+i989pj4zzbuuiavb0jginId8L8vqhOw9xVshVOusnYBEkY5mYSRQKG0NNrlWxV8iy7qlezpZK7X0qinjZqnepNspC7lmSblpIdCQkm8AHf6DN8wuIRZoeDR+ok8Ye0jFOlZ/N5cvEQcBYBWGW27F8OH4BYYz4ej8lgWYoBBK/Q+w/n8nxuMD+Opj+T8/hhs1SrVCdxnHazUQhmaLgqBbQrjCcehX9ebIm6CDHnrmasmfqyzYlCUIVxxHtbhyijJiPGiMyrd5HP3mRr+wU=")));
+eval(gzinflate(base64_decode("jZBBawIxEIXvhf6HIQixIG5B8GARKjUHD7rtunopEtY43aTubpZkoNLW/97EpZT21FNg3st7M59HkmRqlJWpDfVvb+6ur9A566TD1joyTdkNe3vrPUyBK3vAd4/qvqwLUw2VrXmUT7ItSAcD00TtJEkYDKEn1yLbiuyZd69czZaC734pmXjaiHUuN9mC72KSaWNKcfToYQIf8B19hk9YPMLscHDoO4n9SVqmuZCz+Ty7dDA4sxAY1+xf1h8AW6Maj8deY1WxAYSuMPtPzgWB0qiOo+mPc54+bJZilcssTfPOmwQ0Q011xSB+ITzRKNzzYiqUZYCtbEPYkO/zyMkHUKW2nvamCSiTtvCEidevziaueOOx9gs=")));
 
 #function
 function ambilKata($param, $kata1, $kata2){
