@@ -1,48 +1,366 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="description" content="<?= @$description; ?>">
-    <meta name="keywords" content="<?= @$keywords; ?>">
-    <meta name="author" content="<?= @$author; ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?= @$title; ?></title>
-
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="<?= @base_url('assets'); ?>/images/icon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= @base_url('assets'); ?>/images/icon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= @base_url('assets'); ?>/images/icon/favicon-16x16.png">
-    <link rel="manifest" href="<?= @base_url('assets'); ?>/images/icon/site.webmanifest">
-    <link rel="mask-icon" href="<?= @base_url('assets'); ?>/images/icon/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-
-    <?php $this->load->view('_layouts_user/_css'); ?>
-
-</head>
-
-<body>
+<!-- Google Tag Manager -->
 <script data-ad-client="ca-pub-3939850173581632" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- start per-loader -->
-    <div class="loader-container">
-        <div class="loader-circle">
-            <div class="loader">
-                <div class="loader-dot"></div>
-                <div class="loader-dot"></div>
-                <div class="loader-dot"></div>
-                <div class="loader-dot"></div>
-                <div class="loader-dot"></div>
-                <div class="loader-dot"></div>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MCNN97H');</script>
+<!-- End Google Tag Manager -->
+
+<div class="container">
+      <div class="expo-header-new">
+        <div class="expo-logo">
+          <a href="/"><img src="/web/assets/images/theme-images/logo.png" alt="Expo Stand Zone" title="Expo Stand Zone" /></a>
+        </div>
+        <div class="expo-middle-nav">
+          <ul>
+            <?php if (check_authentication_web() != 1) { ?>
+        
+              <li><a href="/supplier-register">I am Supplier</a></li>
+              <li><a href="/organiser-register">I am Organizer</a></li>
+              <li><a href="/exhibitor-register">I am Exhibitor</a></li>
+              
+            <?php } else { ?>
+              <li><a href="<?php echo ($_SESSION['mystand_type']=='supplier') ? '/supplier-dashboard' : '/supplier-register'?>">I am Supplier</a></li>
+              <li><a href="<?php echo ($_SESSION['mystand_type']=='organiser') ? '/supplier-dashboard' : '/organiser-register'?>">I am Organizer</a></li>
+              <li><a href="<?php echo ($_SESSION['mystand_type']=='exhibitor') ? '/exhibitor-dashboard' : '/exhibitor-register'?>">I am Exhibitor</a></li>
+            <?php } ?>  
+              </ul>
+          <!--MOBILE MENU ICON:IT'S ONLY SHOW ON MOBILE & TABLET VIEW-->
+<!--        <div class="without-login ts-menu-5"><span><i class="fa fa-bars" aria-hidden="true"></i></span> </div>
+        <div class="mob-right-nav right-custom-nav" data-wow-duration="0.5s">
+        <div class="mob-right-nav-close"><i class="fa fa-times" aria-hidden="true"></i> </div>-->
+        </div>
+        
+        
+          
+        <div class="expo-right-nav">
+          <ul>
+            <li><a href="tel:+1 716 941 7998"> <i class="fa fa-phone" aria-hidden="true"></i> +1 716 941 7998</a></li>
+            <?php if (check_authentication_web() != 1) { ?>
+              <li><span><a href="/user-login" title="Sign-in">Sign-in</a></span> | <span><a href="/signup-as" title="Register"> Register</a></span></li>
+            <?php } else { ?>
+              <li>&nbsp;</li>
+            <?php } ?>  
+          </ul>
+
+          <?php if ($_SESSION['mystand_type'] == 'supplier') { ?>      
+            <div id="expo-user" >
+              <div class="login-user-menu-home-page">
+                <!-- Dropdown Trigger -->
+                <a class="waves-effect dropdown-button top-user-pro active user-login-menu"  href="javascript:void(0);" data-activates="top-menu">
+                  <img src="/web/assets/images/user-no-image.jpg" alt=""><?php echo $_SESSION['mystand_supplier_first_name']; ?> <i class="fa fa-angle-down" aria-hidden="true"></i> </a>
+                <ul id="top-menu" class="dropdown-content top-menu-sty active" >
+                  <li><a href="/register?supid=<?php echo base64_encode($_SESSION['mystand_supplier_id']); ?>" class="waves-effect"><i class="fa fa-cogs"></i>Edit Profile</a> </li>
+                  <?php if ($profile_complition_percentage != '100' && 0) { ?>
+                    <li><a href="/supplier-profile-view"><i class="fa fa-tachometer"></i> Dashboard</a> </li>
+                  <?php } else { ?>
+                    <li><a href="/supplier-dashboard"><i class="fa fa-tachometer"></i> Dashboard</a> </li>
+                  <?php } ?>
+                  <li><a href="/supplier-order-request"><i class="fa fa-buysellads" aria-hidden="true"></i>Order Requests</a></li>
+                  <li><a href="/supplier-publish-job"><i class="fa fa-file-text" aria-hidden="true"></i>Publish My Latest Jobs</a></li>
+                  <li><a href="/supplier-lead-request"><i class="fa fa-buysellads" aria-hidden="true"></i>Lead Requests</a></li>
+                  <li><a href="/web/access-control/logout.php" class="ho-dr-con-last waves-effect"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a> </li>
+                </ul>
+              </div>
+              <!--MOBILE MENU CONTAINER:IT'S ONLY SHOW ON MOBILE After Login Supplier-->
+              <div class="ts-menu-5"><img src="/web/assets/images/user-no-image.jpg" alt=""><span><i class="fa fa-bars" aria-hidden="true"></i></span></div> 
+              <div class="mob-right-nav right-custom-nav" data-wow-duration="0.5s">
+                <div class="mob-right-nav-close"><i class="fa fa-times" aria-hidden="true"></i> </div>
+                <a class="waves-effect dropdown-button top-user-pro active user-login-menu"  href="javascript:void(0);" data-activates="top-menu">
+                  <img src="/web/assets/images/user-no-image.jpg" alt=""><?php echo $_SESSION['mystand_supplier_first_name'] . " " . $_SESSION['mystand_supplier_last_name']; ?> <i class="fa fa-angle-down" aria-hidden="true"></i> </a>
+                <ul class="mob-menu-icon">
+                  <li><a href="/register?supid=<?php echo base64_encode($_SESSION['mystand_supplier_id']); ?>" class="waves-effect"><i class="fa fa-cogs"></i>Edit Profile</a> </li>
+                  <?php if ($profile_complition_percentage != '100') { ?>
+                    <li><a href="/supplier-profile-view"><i class="fa fa-tachometer"></i> Dashboard</a> </li>
+                  <?php } else { ?>
+                    <li><a href="/supplier-dashboard"><i class="fa fa-tachometer"></i> Dashboard</a> </li>
+                  <?php } ?>
+                  <li><a href="/supplier-order-request"><i class="fa fa-buysellads" aria-hidden="true"></i>Order Requests</a></li>
+                  <li><a href="/supplier-publish-job"><i class="fa fa-file-text" aria-hidden="true"></i>Publish My Latest Jobs</a></li>
+                  <li><a href="/web/access-control/logout.php" class="ho-dr-con-last waves-effect"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a> </li>
+                </ul>
+              </div> 
+            </div>      
+          <?php } elseif ($_SESSION['mystand_type'] == 'exhibitor') { ?>
+            <div id="expo-user" >
+              <div class="login-user-menu-home-page">
+                <!-- Dropdown Trigger -->
+                <a class="waves-effect dropdown-button top-user-pro active user-login-menu"  href="javascript:void(0);" data-activates="top-menu">
+                  <img src="/web/assets/images/user-no-image.jpg" alt=""><?php echo $_SESSION['mystand_supplier_first_name'] . " " . $_SESSION['mystand_supplier_last_name']; ?> <i class="fa fa-angle-down" aria-hidden="true"></i> </a>
+                <ul id="top-menu" class="dropdown-content top-menu-sty active" >
+                  <li><a href="/edit-exhibitor-register?exbid=<?php echo base64_encode($_SESSION['mystand_supplier_id']); ?>" class="waves-effect"><i class="fa fa-cogs"></i>Edit Profile</a> </li>
+
+                  <?php if ($profile_complition_percentage != '100') { ?>
+                    <li><a href="/exhibitor-profile-view"><i class="fa fa-tachometer"></i> Dashboard</a> </li>
+                  <?php } else { ?>
+                    <li><a href="/exhibitor-dashboard"><i class="fa fa-tachometer"></i> Dashboard</a> </li>
+                  <?php } ?>
+                  <li><a href="/exhibitor-order-request"><i class="fa fa-buysellads" aria-hidden="true"></i>Order Requests</a></li>
+                  <li><a href="/exhibit-locations"><i class="fa fa-globe" aria-hidden="true"></i>Exhibit location</a></li>
+                  <li><a href="/web/access-control/logout.php" class="ho-dr-con-last waves-effect"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a> </li>
+                </ul>
+                <!-- Dropdown Structure -->
+              </div>
+              <!--MOBILE MENU CONTAINER:IT'S ONLY SHOW ON MOBILE After Login exhibitor-->
+              <div class="ts-menu-5"><img src="/web/assets/images/user-no-image.jpg" alt=""><span><i class="fa fa-bars" aria-hidden="true"></i></span></div> 
+              <div class="mob-right-nav right-custom-nav" data-wow-duration="0.5s">
+                <div class="mob-right-nav-close"><i class="fa fa-times" aria-hidden="true"></i> </div>
+                <a class="waves-effect dropdown-button top-user-pro active user-login-menu"  href="javascript:void(0);" data-activates="top-menu">
+                  <img src="/web/assets/images/user-no-image.jpg" alt="" ><?php echo $_SESSION['mystand_supplier_first_name'] . " " . $_SESSION['mystand_supplier_last_name']; ?> <i class="fa fa-angle-down" aria-hidden="true"></i> </a>
+                <ul class="mob-menu-icon">
+                  <li><a href="/edit-exhibitor-register?exbid=<?php echo base64_encode($_SESSION['mystand_supplier_id']); ?>" class="waves-effect"><i class="fa fa-cogs"></i>Edit Profile</a> </li>
+
+                  <?php if ($profile_complition_percentage != '100') { ?>
+                    <li><a href="/exhibitor-profile-view"><i class="fa fa-tachometer"></i> Dashboard</a> </li>
+                  <?php } else { ?>
+                    <li><a href="/exhibitor-dashboard"><i class="fa fa-tachometer"></i> Dashboard</a> </li>
+                  <?php } ?>
+                  <li><a href="/exhibitor-order-request"><i class="fa fa-buysellads" aria-hidden="true"></i>Order Requests</a></li>
+                  <li><a href="/exhibit-locations"><i class="fa fa-globe" aria-hidden="true"></i>Exhibit location</a></li>
+                  <li><a href="/web/access-control/logout.php" class="ho-dr-con-last waves-effect"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a> </li>
+                </ul>
+              </div> 
             </div>
+          <?php } elseif ($_SESSION['mystand_type'] == 'organiser') { ?>
+            <div id="expo-user" >
+              <div class="login-user-menu-home-page">
+                <!-- Dropdown Trigger -->
+                <a class="waves-effect dropdown-button top-user-pro active user-login-menu"  href="javascript:void(0);" data-activates="top-menu">
+                  <img src="/web/assets/images/user-no-image.jpg" alt=""><?php echo $_SESSION['mystand_supplier_first_name'] . " " . $_SESSION['mystand_supplier_last_name']; ?> <i class="fa fa-angle-down" aria-hidden="true"></i> </a>
+                <ul id="top-menu" class="dropdown-content top-menu-sty active" >
+                  <li>
+                    <a href="/edit-organiser-register?orgid=<?php echo base64_encode($_SESSION['mystand_supplier_id']); ?>" class="waves-effect">
+                      <i class="fa fa-cogs"></i>
+                      Edit Profile
+                    </a>
+                  </li>
+                  <li><a href="/organiser-dashboard"><i class="fa fa-tachometer"></i> Dashboard</a> </li>
+                  <li><a href="/organiser-order-request"><i class="fa fa-buysellads" aria-hidden="true"></i>Order Requests</a></li>
+                  <li><a href="/organiser-publish-event"><i class="fa fa-calendar" aria-hidden="true"></i>Publish New Event</a></li>          
+                  <li><a href="/web/access-control/logout.php" class="ho-dr-con-last waves-effect"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a> </li>
+                </ul>
+                <!-- Dropdown Structure -->
+              </div>
+              <!--MOBILE MENU CONTAINER:IT'S ONLY SHOW ON MOBILE After Login organiser-->
+              <div class="ts-menu-5"><img src="/web/assets/images/user-no-image.jpg" alt=""><span><i class="fa fa-bars" aria-hidden="true"></i></span></div> 
+              <div class="mob-right-nav right-custom-nav" data-wow-duration="0.5s">
+                <div class="mob-right-nav-close"><i class="fa fa-times" aria-hidden="true"></i> </div>
+                <a class="waves-effect dropdown-button top-user-pro active user-login-menu"  href="javascript:void(0);" data-activates="top-menu">
+                  <img src="/web/assets/images/user-no-image.jpg" alt="" ><?php echo $_SESSION['mystand_supplier_first_name'] . " " . $_SESSION['mystand_supplier_last_name']; ?> <i class="fa fa-angle-down" aria-hidden="true"></i> </a>
+                <ul class="mob-menu-icon">
+                  <li><a href="/edit-organiser-register?orgid=<?php echo base64_encode($_SESSION['mystand_supplier_id']); ?>" class="waves-effect"><i class="fa fa-cogs"></i>Edit Profile</a> </li>
+                  <li><a href="/organiser-dashboard"><i class="fa fa-tachometer"></i> Dashboard</a> </li>
+                  <li><a href="/organiser-order-request"><i class="fa fa-buysellads" aria-hidden="true"></i>Order Requests</a></li>           <li><a href="/organiser-publish-event"><i class="fa fa-calendar" aria-hidden="true"></i>Publish New Event</a></li>
+                  <li><a href="/web/access-control/logout.php" class="ho-dr-con-last waves-effect"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a> </li>
+                </ul>
+              </div> 
+            </div>
+          <?php } ?>    
+
+        </div>
+      </div>
+    </div>
+
+<?php /*?>
+
+<link href="/web/assets/css/header.css" rel="stylesheet">
+<!--SECTION: GET FREE QUOTE BOX-->
+<div class="container">
+    <div class="row">
+        <div class="get-five-quote">
+          <form name="get5quateForm" id="get5quateForm" method="POST" class="get-quote-class">
+                <ul class="get-free-quote-search">
+                    <li><input type="text" placeholder="Name" name="get_name" id="get_name" required ></li>
+                    <li><input type="email" placeholder="Email" name="get_email" id="get_email" required 
+						<?php if($_SESSION['mystand_supplier_email'] !='' || $_SESSION['mystand_supplier_exhibitor_email'] !=''){
+                          echo "readonly "; 
+								if($_SESSION['mystand_supplier_email'] !='' || $_SESSION['mystand_supplier_exhibitor_email'] ==''){
+									echo "value= ". $_SESSION['mystand_supplier_email'];
+								}else{
+									echo "value= ". $_SESSION['mystand_supplier_exhibitor_email'];
+								}
+							} 
+						?> 
+                    ></li>
+                    <li><select class="bfh-countries" name="get_countries2" id="get_countries2" required="required" data-country="US" data-flags="false" data-blank="false"></select></li>
+                    <li><input type="text" class="bfh-phone" id="get_phonecode2" name="get_phonecode2" data-country="get_countries2" readonly=""></li>
+                    <li><input type="text" placeholder="Phone / Mobile" name="get_mobile" id="get_mobile" onkeypress="javascript:return isNumberKey(event);" required></li>
+                    <li><input type="submit" value="Get 5 Free Quote" ></li>
+                </ul>
+            </form>
         </div>
     </div>
-    <!-- end per-loader -->
+</div>
+<!--SECTION: REGISTER,SIGNIN AND ADD YOUR BUSINESS-->
+<div class="myheader">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="header-1">
+                    <ul>
+                        <li>
+                            <a href="/"><img src="/web/assets/images/logo.png" alt="logo"> </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+<?php 
+    if (check_authentication_web() != 1) {
+?>
+            <div class="col-md-6 col-sm-6 col-xs-6 static-header">
+                <div class="dir-ho-tr pro-tab-h">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li><a href="/signup-as" class="background-red border-red "><i class="fa fa-plus background-red" aria-hidden="true"></i> Promote your Business</a> </li>
+                        <li><a href="/user-login" class="sign-in-all ">Sign In</a> </li>
+                    </ul>
+                </div>
+            </div>
+            <!--MOBILE MENU ICON:IT'S ONLY SHOW ON MOBILE & TABLET VIEW-->
+            <div class="without-login ts-menu-5"><span><i class="fa fa-bars" aria-hidden="true"></i></span> </div>
+            <div class="mob-right-nav right-custom-nav" data-wow-duration="0.5s">
+            <div class="mob-right-nav-close"><i class="fa fa-times" aria-hidden="true"></i> </div>
+            
+            <ul class="mob-menu-icon">
+                <li><a href="/user-login"><i class="fa fa-cogs"></i> Sign In</a> </li>
+                <li><a href="/signup-as"><i class="fa fa-bar-chart"></i> Promote Your Business</a> </li>
+            </ul>
+            </div> 
+<?php 
+    } elseif($_SESSION['mystand_type']=='supplier') {
+?>
+            <div class="dynamic-header" >
+                <div class="user-login-menu login-user-menu-home-page">
+                <!-- Dropdown Trigger -->
+                <a class="waves-effect dropdown-button top-user-pro" href="javascript:void(0);" data-activates="top-menu">
+                <img src="/web/assets/images/user-no-image.jpg" alt=""><?php echo $_SESSION['mystand_supplier_first_name']." ".$_SESSION['mystand_supplier_last_name']; ?> <i class="fa fa-angle-down" aria-hidden="true"></i> </a>
+                <ul id="top-menu" class="dropdown-content " >
+                    <li><a href="/register?supid=<?php echo base64_encode($_SESSION['mystand_supplier_id']);?>" class="waves-effect"><i class="fa fa-cogs"></i>Edit Profile</a> </li>
+                    <?php if($profile_complition_percentage != '100'){?>
+                    <li><a href="/supplier-profile-view"><i class="fa fa-tachometer"></i> dashboard</a> </li>
+                    <?php }else{?>
+                    <li><a href="/supplier-dashboard"><i class="fa fa-tachometer"></i> dashboard</a> </li>
+                    <?php }?>
+                    <li><a href="/supplier-order-request"><i class="fa fa-buysellads" aria-hidden="true"></i>Order Requests</a></li>
+                    <li><a href="/supplier-publish-job"><i class="fa fa-file-text" aria-hidden="true"></i>Publish My Latest Jobs</a></li>
+                    <li><a href="/supplier-lead-request"><i class="fa fa-buysellads" aria-hidden="true"></i>Lead Requests</a></li>
+                    
+                    <li><a href="/web/access-control/logout.php" class="ho-dr-con-last waves-effect"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a> </li>
+                </ul>
+                <!-- Dropdown Structure -->
+                </div>
+               
+                <!--MOBILE MENU CONTAINER:IT'S ONLY SHOW ON MOBILE After Login-->
+                <div class="ts-menu-5"><img src="/web/assets/images/user-no-image.jpg" alt=""><span><i class="fa fa-bars" aria-hidden="true"></i></span></div> 
+                <div class="mob-right-nav right-custom-nav" data-wow-duration="0.5s">
+                <div class="mob-right-nav-close"><i class="fa fa-times" aria-hidden="true"></i> </div>
+                <a class="waves-effect dropdown-button top-user-pro active user-login-menu"  href="javascript:void(0);" data-activates="top-menu">
+                <img src="/web/assets/images/user-no-image.jpg" alt="" ><?php echo $_SESSION['mystand_supplier_first_name']." ".$_SESSION['mystand_supplier_last_name']; ?> <i class="fa fa-angle-down" aria-hidden="true"></i> </a>
+                <ul class="mob-menu-icon">
+                <li><a href="/register?supid=<?php echo base64_encode($_SESSION['mystand_supplier_id']);?>" class="waves-effect"><i class="fa fa-cogs"></i>Edit Profile</a> </li>
+                    <?php if($profile_complition_percentage != '100'){?>
+                    <li><a href="/supplier-profile-view"><i class="fa fa-tachometer"></i> dashboard</a> </li>
+                    <?php }else{?>
+                    <li><a href="/supplier-dashboard"><i class="fa fa-tachometer"></i> dashboard</a> </li>
+                    <?php }?>
+                    <li><a href="/supplier-order-request"><i class="fa fa-buysellads" aria-hidden="true"></i>Order Requests</a></li>
+                 <li><a href="/supplier-publish-job"><i class="fa fa-file-text" aria-hidden="true"></i>Publish My Latest Jobs</a></li>   
+                    <li><a href="/web/access-control/logout.php" class="ho-dr-con-last waves-effect"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a> </li>
+                </ul>
+                </div> 
+            </div>
+<?php 
+    }elseif($_SESSION['mystand_type']=='exhibitor') {
+?>
+            <div id="expo-user" >
+                <div class="login-user-menu-home-page">
+                <!-- Dropdown Trigger -->
+                <a class="waves-effect dropdown-button top-user-pro active user-login-menu"  href="javascript:void(0);" data-activates="top-menu">
+                <img src="/web/assets/images/user-no-image.jpg" alt=""><?php echo $_SESSION['mystand_supplier_first_name']." ".$_SESSION['mystand_supplier_last_name']; ?> <i class="fa fa-angle-down" aria-hidden="true"></i> </a>
+                <ul id="top-menu" class="dropdown-content top-menu-sty active" >
+                    <li><a href="/edit-exhibitor-register?exbid=<?php echo base64_encode($_SESSION['mystand_supplier_id']);?>" class="waves-effect"><i class="fa fa-cogs"></i>Edit Profile</a> </li>
+                    <?php if($profile_complition_percentage != '100'){?>
+                        <li><a href="/exhibitor-profile-view"><i class="fa fa-tachometer"></i> dashboard</a> </li>
+                    <?php }else{?>
+                        <li><a href="/exhibitor-dashboard"><i class="fa fa-tachometer"></i> dashboard</a> </li>
+                    <?php }?>
+                    <li><a href="/exhibitor-order-request"><i class="fa fa-buysellads" aria-hidden="true"></i>Order Requests</a></li>
+                    <li><a href="/exhibit-locations"><i class="fa fa-globe" aria-hidden="true"></i>exhibit location</a></li>
+                    <!--<li><a href=""><i class="fa fa-buysellads" aria-hidden="true"></i>Ads</a> </li>
+                    <li><a href="admin-payment.html"><i class="fa fa-usd" aria-hidden="true"></i> Payments</a> </li>
+                    <li><a href="admin-notifications.html"><i class="fa fa-bell-o"></i>Notifications</a> </li>
+                    <li><a href="javascript:void(0);" class="waves-effect"><i class="fa fa-undo" aria-hidden="true"></i> Backup Data</a> </li>-->
+                    
+                    <li><a href="/web/access-control/logout.php" class="ho-dr-con-last waves-effect"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a> </li>
+                </ul>
+                <!-- Dropdown Structure -->
+            `	</div>
+               	<!--MOBILE MENU CONTAINER:IT'S ONLY SHOW ON MOBILE After Login-->
+                <div class="ts-menu-5"><img src="/web/assets/images/user-no-image.jpg" alt=""><span><i class="fa fa-bars" aria-hidden="true"></i></span></div> 
+                <div class="mob-right-nav right-custom-nav" data-wow-duration="0.5s">
+                <div class="mob-right-nav-close"><i class="fa fa-times" aria-hidden="true"></i> </div>
+                <a class="waves-effect dropdown-button top-user-pro active user-login-menu"  href="javascript:void(0);" data-activates="top-menu">
+                <img src="/web/assets/images/user-no-image.jpg" alt="" ><?php echo $_SESSION['mystand_supplier_first_name']." ".$_SESSION['mystand_supplier_last_name']; ?> <i class="fa fa-angle-down" aria-hidden="true"></i> </a>
+                <ul class="mob-menu-icon">
+                <li><a href="/edit-exhibitor-register?exbid=<?php echo base64_encode($_SESSION['mystand_supplier_id']);?>" class="waves-effect"><i class="fa fa-cogs"></i>Edit Profile</a> </li>
+                    <?php if($profile_complition_percentage != '100'){?>
+                        <li><a href="/exhibitor-profile-view"><i class="fa fa-tachometer"></i> dashboard</a> </li>
+                    <?php }else{?>
+                        <li><a href="/exhibitor-dashboard"><i class="fa fa-tachometer"></i> dashboard</a> </li>
+                    <?php }?>
+                    <li><a href="/exhibitor-order-request"><i class="fa fa-buysellads" aria-hidden="true"></i>Order Requests</a></li>
+                    <li><a href="/exhibit-locations"><i class="fa fa-globe" aria-hidden="true"></i>exhibit location</a></li>
+                 
+                    <li><a href="/web/access-control/logout.php" class="ho-dr-con-last waves-effect"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a> </li>
+                </ul>
+                </div> 
 
-    <?php $this->load->view('_layouts_user/_navbar'); ?>
-    <?php
-    if ($this->uri->segment(1) != "auth" && $this->uri->segment(1) != "pekerjaan" && $this->uri->segment(1) != "kebijakan_privasi" && $this->uri->segment(1) != "tentang_kami" && $this->uri->segment(1) != "promosi") {
-        $this->load->view('_layouts_user/_header_banner');
+            </div>
+<?php 
+    }elseif($_SESSION['mystand_type']=='organiser') {
+?>
+            <div id="expo-user" >
+                <div class="login-user-menu-home-page">
+                <!-- Dropdown Trigger -->
+                <a class="waves-effect dropdown-button top-user-pro active user-login-menu"  href="javascript:void(0);" data-activates="top-menu">
+                <img src="/web/assets/images/user-no-image.jpg" alt=""><?php echo $_SESSION['mystand_supplier_first_name']." ".$_SESSION['mystand_supplier_last_name']; ?> <i class="fa fa-angle-down" aria-hidden="true"></i> </a>
+                <ul id="top-menu" class="dropdown-content top-menu-sty active" >
+                    <li><a href="/edit-organiser-register?orgid=<?php echo base64_encode($_SESSION['mystand_supplier_id']);?>" class="waves-effect"><i class="fa fa-cogs"></i>Edit Profile</a> </li>
+                   
+                    
+                    <li><a href="/organiser-dashboard"><i class="fa fa-tachometer"></i> dashboard</a> </li>
+                            <li><a href="/organiser-order-request"><i class="fa fa-buysellads" aria-hidden="true"></i>Order Requests</a></li>
+                    <li><a href="/organiser-publish-event"><i class="fa fa-calendar" aria-hidden="true"></i>Publish New Event</a></li>
+                    
+                    <li><a href="/web/access-control/logout.php" class="ho-dr-con-last waves-effect"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a> </li>
+                </ul>
+                <!-- Dropdown Structure -->
+            `	</div>
+               	<!--MOBILE MENU CONTAINER:IT'S ONLY SHOW ON MOBILE After Login-->
+                <div class="ts-menu-5"><img src="/web/assets/images/user-no-image.jpg" alt=""><span><i class="fa fa-bars" aria-hidden="true"></i></span></div> 
+                <div class="mob-right-nav right-custom-nav" data-wow-duration="0.5s">
+                <div class="mob-right-nav-close"><i class="fa fa-times" aria-hidden="true"></i> </div>
+                <a class="waves-effect dropdown-button top-user-pro active user-login-menu"  href="javascript:void(0);" data-activates="top-menu">
+                <img src="/web/assets/images/user-no-image.jpg" alt="" ><?php echo $_SESSION['mystand_supplier_first_name']." ".$_SESSION['mystand_supplier_last_name']; ?> <i class="fa fa-angle-down" aria-hidden="true"></i> </a>
+                <ul class="mob-menu-icon">
+                <li><a href="/edit-organiser-register?orgid=<?php echo base64_encode($_SESSION['mystand_supplier_id']);?>" class="waves-effect"><i class="fa fa-cogs"></i>Edit Profile</a> </li>
+                   <li><a href="/organiser-dashboard"><i class="fa fa-tachometer"></i> dashboard</a> </li>
+                    <li><a href="/organiser-order-request"><i class="fa fa-buysellads" aria-hidden="true"></i>Order Requests</a></li>
+                    <li><a href="/organiser-publish-event"><i class="fa fa-calendar" aria-hidden="true"></i>Publish New Event</a></li>
+                    <li><a href="/web/access-control/logout.php" class="ho-dr-con-last waves-effect"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a> </li>
+                </ul>
+                </div> 
+
+            </div>
+<?php 
     }
-    ?>
+?>     
+        </div>
+    </div>
+</div>
+
+<!--end normal header---->
+
+<?php */?>
